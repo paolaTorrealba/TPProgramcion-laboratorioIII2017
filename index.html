@@ -8,46 +8,126 @@
 
 <title>UTN FRA</title>
 
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-<script type="text/javascript" src="js/funcionesAjax.js"></script>
+<!-- main css -->
+<link href="css/style.css" rel="stylesheet" type="text/css">
 
+<!-- media queries css -->
+ <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link href="css/media-queries.css" rel="stylesheet" type="text/css">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/ingreso.css" rel="stylesheet">
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+ 
+<script type="text/javascript" src="js/funcionesAjax.js"></script>
+<script type="text/javascript" src="js/funcionesLogin.js"></script>
+<script type="text/javascript" src="js/funcionesABM.js"></script>
 
 </head>
 
-
-
-
-
-
-
 <body>
-<div>
-<center>
- <fieldset>
 
-           <form action = "" method="POST" class="form-horizontal"> 
+<div id="pagewrap">
 
-                
+	<header id="header">
 
-                <input type="text" name="mail" id="mail" required placeholder="mail"> <br>
-                <input type="text" name="clave" id= "clave" required placeholder="clave"> <br>
-                <input type="text" name="estado" id="estado" required placeholder="estado"> <br>
+		<hgroup>
+			<h1 id="site-logo"><a href="#">Estacionamiento</a></h1>
+			
+		</hgroup>
 
-               <!-- <button type="submit"  onclick="pruebaSlim()">enviar</button>  -->
-                <button type="submit" id="botonAlta" >Alta</button> 
-                 <button type="submit" id="botonTrarTodos" >traerTodos</button>      
+		<!-- <nav>
+			<ul id="main-nav" class="clearfix">
+				<li><a onclick="MostrarError()" class="btn">Ajax<br> Error!!!</a></li>
+				<li><a onclick="MostrarSinParametros()" class="btn">Ajax<br>Sin Parametros</a> </li>
+				<li><a onclick="Mostrar('foto')" class="btn">Foto<br>(parametros y POST) </a> </li>
+				<li><a onclick="Mostrar('video')" class="btn">Video<br>(parametros y POST)</a> </li>
+				<li><a onclick="Mostrar('MostrarGrilla')" class="btn">Mostrar Grilla<br>-Sesión-</a> </li>
 
-             
+				<li><a onclick="MostarLogin()"  class="btn btn-primary" id="BotonLogin" >Login<br>-Sesión-</a> </li>
+			</ul>
+			/#main-nav --> 
+		<!-- </nav>  -->
 
-                
+		<!-- <form id="searchform">
+			<input type="search" id="usuario" readonly placeholder="Sin Usuario">
+		</form> -->
 
-            </form>
+	</header>
+	<!-- /#header -->
+	
+	<div id="content" >
 
-  </fieldset>
+		<article  class="post clearfix">
+
+			<header  >
+				<h1 class="post-title"><a href="#">Bienvenido</a></h1>
+				
+			</header>
+			<hr>
+			<div id="principal">
+               <!--contenido dinamico -->
+				<div id="formLogin" class="container" >
+<!-- onsubmit="validarLogin(); -->
+				      <form  class="form-ingreso " return false;>
+				        <h2 class="form-ingreso-heading">Ingrese sus datos</h2>
+				        <label for="correo" class="sr-only">Correo electrónico</label>
+				                <input type="text" id="correo" class="form-control" placeholder="Correo electrónico" required="" autofocus="" >
+				        <label for="clave" class="sr-only">Clave</label>
+				        <input type="password" id="clave" minlength="4" class="form-control" placeholder="clave" required="">
+
+				        <!-- <div class="checkbox">
+				          <label>
+				            <input type="checkbox" id="recordarme" checked> Recordame
+				          </label>
+				          
+				        </div> -->
+				        <button class="btn btn-lg btn-primary btn-block" id="botonAlta" type="submit" >Ingresar</button>
+                        
+
+				    
+				      </form>
+				 </div> <!-- /container -->
 
 
-</center>
 
+
+		   <!--contenido dinamico --> 
+
+			</div>		
+
+		</article>
+		<!-- /.post -->
+
+	</div>
+	<!-- /#content --> 
+	
+	
+	<aside id="sidebar">
+
+		<div id="botonesABM"> 
+		    
+		</div>
+		<section class="widget clearfix" >
+			<h4 class="widgettitle">informe </h4>
+				<div id="informe">
+				<!--contenido dinamico cargado por ajax-->
+				</div>
+			
+		</section>
+						
+	</aside>
+	<!-- /#sidebar -->
+
+	<footer id="footer">
+	
+		
+
+	</footer>
+	<!-- /#footer --> 
+	
 </div>
+<!-- /#pagewrap -->
+
 </body>
 </html>

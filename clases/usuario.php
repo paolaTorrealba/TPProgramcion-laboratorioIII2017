@@ -68,13 +68,13 @@ class usuario
 			$consulta->execute();			
 			return $consulta->fetchAll(PDO::FETCH_CLASS, "usuario");		
 	}
-   public static function TraerUno($id,$mail,$clave, $estado, $salida, $rol) 
+   public static function TraerUno($mail, $clave) 
 	{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta = $objetoAccesoDato->RetornarConsulta("select id as id, mail as mail, clave as clave, estado as estado, rol as rol from usuario where id = $id");
+			$consulta = $objetoAccesoDato->RetornarConsulta("select id as id, mail as mail, clave as clave, estado as estado, rol as rol from usuario where mail = '$mail' and clave = '$clave'");
 			$consulta->execute();
-			$cocheraBuscado= $consulta->fetchObject('usuario');
-			return $cocheraBuscado;				
+			$objetoBuscado= $consulta->fetchObject('usuario');
+			return $objetoBuscado;				
 
 			
 	}
