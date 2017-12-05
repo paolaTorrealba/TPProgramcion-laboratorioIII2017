@@ -1,0 +1,65 @@
+body {
+  margin: 0 auto;
+  color: black;
+  background: black;
+  font-family:'Open Sans',sans-serif;
+}
+
+.CajaInicio {
+  width:750px;
+  margin:0 auto;
+  margin-top:8px;
+  margin-bottom:2%;
+  transition:opacity 1s;
+  -webkit-transition:opacity 1s;
+}
+
+
+
+.CajaInicio h1,h4{
+  background:rgb(14, 26, 112);
+  padding:20px 0;
+  font-size:140%;
+  font-weight:300;
+  text-align:center;
+  color:#fff;
+}
+
+.CajaInicio a {
+    color: red;
+    text-align: center;
+    font-family:'Open Sans',sans-serif;
+}
+
+.MiBotonUTN {
+  display:block;
+  text-transform: capitalize;
+  border:hidden;
+  width:100%;
+  background:#f50056;
+  margin:0 auto;
+  margin-top:1%;
+  padding:10px;
+  text-align:center;
+  text-decoration:none;
+  color:#fff;
+  cursor:pointer;
+  -moz-border-radius:7px;
+  -webkit-border-radius:7px;
+  border-radius:7px;
+  transition:background .3s;
+  -webkit-transition:background .3s;
+}
+
+input
+{
+  color: black;
+}
+option{
+  color: black;
+}
+
+::-webkit-input-placeholder { /* Safari, Chrome and Opera */
+  color: black;
+}
+

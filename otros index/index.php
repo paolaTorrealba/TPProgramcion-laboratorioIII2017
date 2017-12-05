@@ -1,5 +1,4 @@
 <?php
-header('Access-Control-Allow-Origin: *');
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
@@ -14,7 +13,7 @@ require_once 'clases/usuario.php';
 $app = new \Slim\App;
 
 //------------------------AUTO----------------------------------
-//------------------------------------------------------------------
+// //------------------------------------------------------------------
 $app->get('/auto/traerTodos', function (Request $request, Response $response) {    
     
     $auto = auto::TraerTodos();  
@@ -22,7 +21,9 @@ $app->get('/auto/traerTodos', function (Request $request, Response $response) {
 });
 
 
-$app->get('/auto/traerUno', function (Request $request, Response $response) {     
+$app->get('/auto/traerUno', function (Request $request, Response $response) { 
+
+   // $id=$request->getAttribute('id');   
     $id = $request->getParam('id');  
     $auto = auto::TraerUno($id);
     return $response->withJson($auto);
@@ -30,6 +31,16 @@ $app->get('/auto/traerUno', function (Request $request, Response $response) {
 
 
 $app->post('/auto/alta', function (Request $request, Response $response) {
+
+    // $data = $request->getParsedBody();
+    // $auto = [];
+    // $auto['patente'] = filter_var($data['patente'], FILTER_SANITIZE_STRING);
+    // $auto['color'] = filter_var($data['color'], FILTER_SANITIZE_STRING);
+    // $auto['marca'] = filter_var($data['marca'], FILTER_SANITIZE_STRING); 
+      
+    // $rta["rta"] = auto::Insertar($auto['patente'],$auto['color'],$auto['marca']);
+
+
    $patente = $request->getParam('patente');
    $color = $request ->getParam('color');
    $marca = $request->getParam('marca');
@@ -39,25 +50,28 @@ $app->post('/auto/alta', function (Request $request, Response $response) {
 });
 
 
-$app->post('/auto/baja', function (Request $request, Response $response) {
+// $app->delete('/auto/baja/{id}', function (Request $request, Response $response) {
 
-    $id = $request->getParam('id');  
-    $auto = auto::Baja($id);  
-    return  $response->withJson($auto);   
+//     $id=$request->getAttribute('id');
+//     $auto = auto::Baja($id);  
+//     return  $response->withJson($auto);   
 
-});
+// });
 
 
-$app->post('/auto/modificar', function (Request $request, Response $response) {
+// $app->post('/auto/modificar', function (Request $request, Response $response) {
  
-    $id = $request->getParam('id');  
-    $marca = $request->getParam('marca');  
-    $color = $request->getParam('color');  
-    $patente = $request->getParam('patente');
-    $rta["rta"] = auto::Modificar($id,$patente,$color,$marca);  
-    return $response->withJson($rta);     
+//      $data = $request->getParsedBody();
+//      $auto = [];
+
+//     $auto['patente'] = filter_var($data['patente'], FILTER_SANITIZE_STRING);
+//     $auto['color'] = filter_var($data['color'], FILTER_SANITIZE_STRING);
+//     $auto['marca'] = filter_var($data['marca'], FILTER_SANITIZE_STRING); 
+//     $auto['id'] = filter_var($data['id'], FILTER_SANITIZE_STRING);
+    
+//     $modificado = auto::Modificar( $auto['id'] ,$auto['patente'],$auto['color'],$auto['marca']);
         
-});
+// });
 
 
 
@@ -73,7 +87,7 @@ $app->get('/cochera/traerTodos', function (Request $request, Response $response)
 
 $app->get('/cochera/traerUno', function (Request $request, Response $response) { 
 
-   
+    //$id=$request->getAttribute('id');  
     $nroCochera = $request->getParam('nroCochera');  
     $cochera = cochera::TraerUno($nroCochera);
     return $response->withJson($cochera);
@@ -97,13 +111,13 @@ $app->post('/cochera/alta', function (Request $request, Response $response) {
 });
 
 
-$app->delete('/cochera/baja', function (Request $request, Response $response) {
+// $app->delete('/cochera/baja/{id}', function (Request $request, Response $response) {
 
-    $id=$request->getAttribute('id');
-    $cochera = cochera::Baja($id);  
-    return  $response->withJson($cochera);   
+//     $id=$request->getAttribute('id');
+//     $cochera = cochera::Baja($id);  
+//     return  $response->withJson($cochera);   
 
-});
+// });
 
 
 // $app->post('/cochera/modificar', function (Request $request, Response $response) {
@@ -187,11 +201,11 @@ $app->post('/alquilerCochera/modificar', function (Request $request, Response $r
 //------------------------EMPLEADO----------------------------------
 //------------------------------------------------------------------
 
-$app->get('/empleado/traerTodos', function (Request $request, Response $response) {    
+// $app->get('/empleado/traerTodos', function (Request $request, Response $response) {    
     
-    $empleado = empleado::TraerTodos();  
-    return $response->withJson($empleado); 
-});
+//     $empleado = empleado::TraerTodos();  
+//     return $response->withJson($empleado); 
+// });
 
 
 // $app->get('/empleado/traerUno/{id}', function (Request $request, Response $response) { 
@@ -200,45 +214,39 @@ $app->get('/empleado/traerTodos', function (Request $request, Response $response
 //     $empleado = empleado::TraerUno($id);
 //     return $response->withJson($empleado);
 // });
-$app->get('/empleado/traerUno', function (Request $request, Response $response) { 
-    $id = $request->getParam('id');     
-    $empleado = empleado::TraerUno($id);
-    return $response->withJson($empleado);
-});
 
-  
 
-$app->post('/empleado/alta', function (Request $request, Response $response) {
+// $app->post('/empleado/alta', function (Request $request, Response $response) {
 
-    $data = $request->getParsedBody();
-    $empleado = [];
-    $empleado['tipoEmpleado'] = filter_var($data['tipoEmpleado'], FILTER_SANITIZE_STRING);
-    $empleado['estadoEmpleado'] = filter_var($data['estadoEmpleado'], FILTER_SANITIZE_STRING);
+//     $data = $request->getParsedBody();
+//     $empleado = [];
+//     $empleado['tipoEmpleado'] = filter_var($data['tipoEmpleado'], FILTER_SANITIZE_STRING);
+//     $empleado['estadoEmpleado'] = filter_var($data['estadoEmpleado'], FILTER_SANITIZE_STRING);
          
-    $rta["rta"] = cochera::Insertar($empleado['tipoEmpleado'],$empleado['estadoEmpleado']);
-    return $response->withJson($rta);         
-});
+//     $rta["rta"] = cochera::Insertar($empleado['tipoEmpleado'],$empleado['estadoEmpleado']);
+//     return $response->withJson($rta);         
+// });
 
 
-$app->delete('/empleado/baja/{id}', function (Request $request, Response $response) {
+// $app->delete('/empleado/baja/{id}', function (Request $request, Response $response) {
 
-    $id=$request->getAttribute('id');
-    $empleado = empleado::Baja($id);  
-    return  $response->withJson($empleado);   
-});
+//     $id=$request->getAttribute('id');
+//     $empleado = empleado::Baja($id);  
+//     return  $response->withJson($empleado);   
+// });
 
 
-$app->post('/empleado/modificar', function (Request $request, Response $response) {
+// $app->post('/empleado/modificar', function (Request $request, Response $response) {
  
-    $data = $request->getParsedBody();
-    $empleado = [];
+//     $data = $request->getParsedBody();
+//     $empleado = [];
 
-    $empleado['id'] = filter_var($data['id'], FILTER_SANITIZE_STRING);
-    $empleado['tipoEmpleado'] = filter_var($data['tipoEmpleado'], FILTER_SANITIZE_STRING);
-    $empleado['estadoEmpleado'] = filter_var($data['estadoEmpleado'], FILTER_SANITIZE_STRING);    
-    $modificado = cochera::Modificar($empleado['id'] ,$empleado['tipoEmpleado'],$empleado['estadoEmpleado']);
+//     $empleado['id'] = filter_var($data['id'], FILTER_SANITIZE_STRING);
+//     $empleado['tipoEmpleado'] = filter_var($data['tipoEmpleado'], FILTER_SANITIZE_STRING);
+//     $empleado['estadoEmpleado'] = filter_var($data['estadoEmpleado'], FILTER_SANITIZE_STRING);    
+//     $modificado = cochera::Modificar($empleado['id'] ,$empleado['tipoEmpleado'],$empleado['estadoEmpleado']);
         
-});
+// });
 
 
 // //------------------------USUARIO----------------------------------

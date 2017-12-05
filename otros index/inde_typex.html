@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Modelo Segundo Parcial Laboratorio III</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  
+  <script src="Auto.js"></script>
+  <script src="Ajax.js" ></script>
+  <script src="Controladora.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <br>
+    <div class="row responsive-utilities-test visible-on">
+      <div class="col-xs-4 col-sm-4" style="background-color:lavender;">
+        <div class="form-group">
+          <label class="col-md-2 control-label">Marca</label>
+          <div class="col-md-10">
+            <input type="text" id="txtMarca" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-2 control-label">Precio</label>
+          <div class="col-md-10">
+            <input type="text" id="txtPrecio" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-2 control-label">Color</label>
+          <div class="col-md-10">
+            <select id="txtColor" class="">
+              <option>Rojo</option>
+              <option>Negro</option>
+              <option>Blanco</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-12">
+            <input type="button" value="Agregar" class="btn btn-primary" onclick="Clases.Controladora.AgregarAuto()"/>
+            <input type="button" value="Mostrar" class="btn btn-primary" onclick="Clases.Controladora.MostrarAutos()"/>
+            <input type="button" value="Filtrar por Color" class="btn btn-default" onclick="Clases.Controladora.FiltrarAutosPorColor()"/>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-8 col-sm-8" style="background-color:lavenderblush;">
+        <div id="divTabla">
+          tabla aqui...
+        </div>
+      </div>
+    </div>
+    <input type="hidden" id="hdnIdAuto" >
+  </div>
+</body>
+
+</html>

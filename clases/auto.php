@@ -16,7 +16,7 @@ class auto
 	}
 
 	//busco el auto por patente
-	   public static function TraerUno($patente) 
+	   public static function TraerUno($id) 
 		{
 				$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 				$consulta = $objetoAccesoDato->RetornarConsulta("select id as id, 
@@ -24,7 +24,7 @@ class auto
 					                                             color as color,
 					                                             marca as marca 
 					                                             from auto 
-					                                             where patente = '$patente'");
+					                                             where id = '$id'");
 				$consulta->execute();
 				$autoBuscado= $consulta->fetchObject('auto');
 				return $autoBuscado;				
@@ -58,21 +58,26 @@ class auto
 
 	 }
 
-	//  public function Modificar($id,$patente, $color,$marca)
-	//  {
+	 public function Modificar($id,$patente, $color,$marca)
+	 {
 
-	// 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-	// 		$consulta =$objetoAccesoDato->RetornarConsulta(" 
-	// 			update auto 
-	// 			set patente='$patente',
-	// 			color='$color',
-	// 			marca='$marca'
-	// 			WHERE id='$id'");             
-	// 		return $consulta->execute();
+			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+			$consulta =$objetoAccesoDato->RetornarConsulta(" 
+				update auto 
+				set patente='$patente',
+				color='$color',
+				marca='$marca'
+				WHERE id='$id'");             
+			return $consulta->execute();
 
-	//  }
+	 }
 	
-    
+    public function Baja($id)
+{
+    $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso();
+    $consulta = $objetoAccesoDato->RetornarConsulta("delete from auto WHERE id = '$id'");
+    return $consulta->execute();
+}
 	
   	
 

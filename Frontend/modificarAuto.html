@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <!--       <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="../bower_components/bootstrapValidator/dist/css/bootstrapValidator.css" rel="stylesheet">
+    <script type="text/javascript" src="../bower_components/moment/min/moment.min.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/bootstrapvalidator/dist/js/bootstrapValidator.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../estilos/estilos.css">
+    <script type="text/javascript" src="../bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    <link rel="stylesheet" href="../bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" /> -->
+    <meta charset="UTF-8">
+    <link href="../css/style.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link href="../css/media-queries.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/bootstrapValidator.min.css" rel="stylesheet">
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrapValidator.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+
+    <script type="text/javascript" src="../js/modificacionesAuto.js">
+    </script>
+    <script type="text/javascript" src="../js/validadorAuto.js">
+    </script>
+        <title>Modificar Auto</title>
+    </head>
+    <body>
+        <div class="container">
+         <div class="page-header">
+         <h1>Modificacion del vehículo en el estacionamiento</h1>
+         </div><!--Cierre Page Header -->
+         
+         <div class="CajaInicio animated bounceInRight">
+			<h1>Por favor ingrese los datos del auto a modificar
+            </h1>
+
+			<form id="FormIngreso" class="form-horizontal" method="POST" enctype="multipart/form-data" action="" >
+				
+                <div class="form-group">
+            <label for="" class="col-lg-4 control-label">Patente</label>
+            <div class="col-lg-6">
+                <input type="text" class="form-control" name="patente" id="patente" placeholder="Ingrese Patente" maxlength="7">
+            </div>
+           </div>
+            
+               <div class="form-group">
+            <label for="" class="col-lg-4 control-label">Marca</label>
+            <div class="col-lg-6">
+                <input type="text" class="form-control" name="marca" id="marca" placeholder="Ingrese Marca">
+            </div>
+           </div>
+               
+               
+            <div class="form-group">
+            <label for="" class="col-lg-4 control-label">Color</label>
+            <div class="col-lg-6">
+                <select id="color" name="color" class="form-control">
+                  <option value="Rojo">Rojo</option>
+                  <option value="Azul">Azul</option>
+                  <option value="Blanco">Blanco</option>
+                  <option value="Negro">Negro</option>
+                  <option value="Verde">Verde</option>
+                </select>
+            </div>
+        </div>
+
+               <div class="form-group">
+            <div class="col-md-5 col-md-offset-3">
+                <button onclick="HacerModificacion()" class="btn btn-danger">
+                <span class="glyphicon glyphicon-plus"></span>
+                Aceptar</button>
+                <a href="grillaAutos.html" class="btn btn-primary">
+                <span class="glyphicon glyphicon-plus"></span>                                                
+                Cancelar</a>
+             </div>
+        </div>
+
+           
+            </form>
+		
+		</div>
+        </div><!-- Cierre Container-->
+    </body>
+</html>
